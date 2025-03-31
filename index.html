@@ -19,82 +19,252 @@
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;CardBowl Mobile Prototype&lt;/title&gt;</p>
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================================</p>
+<p class="p1"><span class="Apple-converted-space">       </span>COLOR PALETTE (Sky Blue + Yellow Theme)</p>
+<p class="p1"><span class="Apple-converted-space">       </span>======================================== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-bg-light: #e1f5fe;<span class="Apple-converted-space">      </span>/* Light Sky Blue background */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-primary: #4fc3f7; <span class="Apple-converted-space">      </span>/* Sky Blue accent */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-secondary: #ffd54f;<span class="Apple-converted-space">    </span>/* Light Yellow accent */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-text-dark: #222222;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-text-light: #fafafa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--cb-card-bg: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">    </span>body {</p>
 <p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Segoe UI', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #0f1126;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: var(--cb-bg-light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-dark);</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-dark);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Container + Reusable Classes */</p>
 <p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 480px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 120px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px auto;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
 <p class="p1"><span class="Apple-converted-space">    </span>.screen {</p>
 <p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--cb-card-bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
 <p class="p1"><span class="Apple-converted-space">    </span>.screen h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #50d8d7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-primary);</p>
 <p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.small-guide {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Buttons */</p>
 <p class="p1"><span class="Apple-converted-space">    </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #50d8d7;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #0f1126;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: var(--cb-secondary);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-dark);</p>
 <p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 5px 10px 0;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #1d1f3a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Splash Screen styling */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#splash {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(140deg, var(--cb-primary), var(--cb-secondary));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#splash h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#splash p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Gallery images */</p>
 <p class="p1"><span class="Apple-converted-space">    </span>.gallery img {</p>
 <p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Card styling */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #fefefe;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 1px 3px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-dark);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Bottom navigation bar (optional, if we want) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bottom-nav {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--cb-secondary);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-link {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--cb-text-dark);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Additional spacing for bottom nav if needed */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 60px;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>}</p>
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
 <p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Splash Screen --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="splash" style="border:none; box-shadow:none; border-radius:0;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="logo cardbowl.png" alt="CardBowl Logo" class="logo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;CardBowl&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Your AI-powered event intelligence — bridging real-world encounters with smart data insights.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#landing"&gt;Tap to Start&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Landing Screen --&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="landing"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Welcome to CardBowl&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Your AI-powered event intelligence assistant&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Enter Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Landing Screen&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 1 of 7: This is your main entry to CardBowl. Click below to explore features.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Welcome to CardBowl. From here, you can sign in, try a live demo, or jump straight to the Dashboard.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Go to Dashboard&lt;/a&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Dashboard Screen --&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="dashboard"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Dashboard&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Dashboard Overview&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 2 of 7: A quick snapshot of your event stats.&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Upcoming Events:&lt;/strong&gt; 3&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Leads Captured:&lt;/strong&gt; 58&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Photos Tagged:&lt;/strong&gt; 120&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Follow-ups Scheduled:&lt;/strong&gt; 22&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#event-gallery"&gt;Go to Event Gallery&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="cardbowl_lead_profile_mock.html"&gt;Go to Lead Detail&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;CardBowl automatically updates these stats in real-time using AI to parse event data.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#event-gallery"&gt;Event Gallery&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#smart-match"&gt;Smart Match&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#voice-transcription"&gt;Transcribe Meeting&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#roi-dashboard"&gt;ROI Metrics&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#settings"&gt;Settings&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="cardbowl_lead_profile_mock.html"&gt;Lead Detail&lt;/a&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Event Gallery Screen --&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="event-gallery"&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Event Gallery&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 3 of 7: AI face-tagging. Identify attendees &amp; organize images fast.&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card gallery"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;AI-Tagged Faces&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Sample Photos&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://via.placeholder.com/300x150.png?text=Event+Photo+1" alt="Event Photo 1" /&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://via.placeholder.com/300x150.png?text=Event+Photo+2" alt="Event Photo 2" /&gt;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://via.placeholder.com/300x150.png?text=Event+Photo+3" alt="Event Photo 3" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;CardBowl's AI tags each face, letting attendees find themselves instantly.&lt;/p&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
 <p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Back to Dashboard&lt;/a&gt;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
 <p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Smart Match Screen --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="smart-match"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Smart Match&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 4 of 7: AI-driven networking suggestions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Suggested 1:&lt;/strong&gt; Sneha (VP Marketing at Cloudia) - Potential synergy on ad campaigns&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Suggested 2:&lt;/strong&gt; Kunal (Head of Partnerships at NextFin) - Likely to collaborate on FinTech solutions&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Suggested 3:&lt;/strong&gt; Aparna (Product Lead at E-CommHub) - Expressed interest in your domain&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Powered by CardBowl's ML engine, we recommend who you'd benefit most from meeting, based on shared interests and previous lead interactions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Back to Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Voice-to-Text Meeting Summary --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="voice-transcription"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Transcribe Meeting&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 5 of 7: Convert live conversations into bullet-point notes.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;AI Recording Status:&lt;/strong&gt; Idle&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Click "Start" to capture a short conversation or meeting highlights. Our Whisper-based speech-to-text engine transcribes &amp; summarizes key points.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="btn" href="#"&gt;Start Recording&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;em&gt;After the conversation, see the summary below:&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Last Transcription:&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Interested in pilot collaboration&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Follow-up next Tuesday with budget details&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Key Pain Point: Real-time data insights needed&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Back to Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ROI Dashboard --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="roi-dashboard"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;ROI Metrics&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 6 of 7: Track cost-to-benefit for each event, all powered by AI predictions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Total Leads:&lt;/strong&gt; 58&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Qualified Leads:&lt;/strong&gt; 24&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Estimated Conversion Rate:&lt;/strong&gt; 35%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Projected Revenue (INR):&lt;/strong&gt; 18,00,000&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;CardBowl aggregates your event data to forecast potential ROI, letting you see if an event truly pays off.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Back to Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Settings &amp; CRM Export Screen --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="screen" id="settings"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Settings &amp; CRM Integration&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="small-guide"&gt;Step 7 of 7: Configure your CRM links, notifications, and more.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;CRM Sync:&lt;/strong&gt; Salesforce Connected&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Notifications:&lt;/strong&gt; Enabled (Email &amp; App)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Photo Tagging Privacy:&lt;/strong&gt; Attendee Opt-in&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Adjust these to suit your workflow. For instance, you can export leads to CRM in real-time, or enable daily summary emails.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn" href="#dashboard"&gt;Back to Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
 <p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Optional bottom nav, if you want a quick jump menu --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bottom-nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="nav-link" href="#landing"&gt;Landing&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="nav-link" href="#dashboard"&gt;Dashboard&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="nav-link" href="#smart-match"&gt;Smart Match&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a class="nav-link" href="#roi-dashboard"&gt;ROI&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
